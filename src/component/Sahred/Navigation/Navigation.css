@@ -1,0 +1,24 @@
+.navigation-container{
+    /* margin-top: 150px; */
+}
+.displayName{
+    margin-left: 100px;
+}
+.nav{
+    background-color: rgba(1, 74, 92, 0.87);
+}
+
+@media only  screen and  (max-width:991px){
+    .navigation-container{
+        padding: 10px 20px;
+        flex-direction: column;
+
+    }
+}
+@media only  screen and  (max-width:688px){
+    .navigation-container{
+        padding: 10px 20px;
+        flex-direction: column;
+
+    }
+}
