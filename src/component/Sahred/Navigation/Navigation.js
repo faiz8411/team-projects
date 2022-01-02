@@ -25,7 +25,7 @@ const Navigation = () => {
                         <Navbar.Collapse className="justify-content-end ">
                             <Navbar.Text className="text-white ">
 
-                                <span className='dispalayName'> Welcome: </span>
+                                {/* <span className='dispalayName'> Welcome: </span> */}
 
                             </Navbar.Text>
                         </Navbar.Collapse>
