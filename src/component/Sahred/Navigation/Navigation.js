@@ -5,7 +5,7 @@ import './Navigation.css'
 
 const Navigation = () => {
     return (
-        <div className='navigation-container'>
+        <div className='navigation-container sticky-top'>
             <Navbar bg="" variant="warning" className=' nav'>
                 <Container>
                     <Navbar.Brand href="#home" className='text-white'>
