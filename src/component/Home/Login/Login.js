@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Alert, Col, Row, Spinner } from 'react-bootstrap';
+import { Alert, Button, Col, Row, Spinner } from 'react-bootstrap';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
     const [loginData, SetLoginData] = useState({})
-    // const { user, loginUser, isLoading, signWithGoogle, authError } = useAuth()
-    // const location = useLocation()
-    // const navigate = useNavigate()
+    const { user, loginUser, isLoading, signWithGoogle, authError } = useAuth()
+    const location = useLocation()
+    const navigate = useNavigate()
     const handleOnChange = (e) => {
         const Field = e.target.name
         const value = e.target.value
@@ -18,11 +20,11 @@ const Login = () => {
 
 
     const handleLoginSubmit = (e) => {
-        // loginUser(loginData.email, loginData.password, location, navigate)
+        loginUser(loginData.email, loginData.password, location, navigate)
         e.preventDefault()
     }
     const handleGoogleSignIn = () => {
-        // signWithGoogle(location, navigate)
+        signWithGoogle(location, navigate)
     }
     return (
         <div>
@@ -53,19 +55,20 @@ const Login = () => {
                         {/* {errors.exampleRequired && <span>This field is required</span>} */}
 
                         <input type="submit" value="login" onClick={handleLoginSubmit} className='bg-success rounded text-white border-0 p-2 m-2' /> <br />
+                        <Link to="/register"><Button variant='Link' className='text-danger'>are you new user?please register</Button></Link> <br />
 
                         <button className='bg-success rounded text-white border-0 p-2' onClick={handleGoogleSignIn}>google sign in</button>
-                        {/* {isLoading &&
+                        {isLoading &&
                             <Spinner animation="border" role="status">
                                 <span className="visually-hidden">Loading...</span>
                             </Spinner>
-                        } */}
-                        {/* {user?.email && <Alert>
+                        }
+                        {user?.email && <Alert>
                             user create successfully
                         </Alert>}
                         {authError && <Alert  >
                             {authError}
-                        </Alert>} */}
+                        </Alert>}
                     </form>
                 </Col>
                 <Col xs={12} md={6}>
