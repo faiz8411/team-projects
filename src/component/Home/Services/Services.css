@@ -1,0 +1,27 @@
+.description{
+    text-align: left;
+    font-weight: 900;
+    
+}
+.service-provide{
+    margin-top: 100px;
+    margin-left: 20px;
+    text-align: left;
+    color: lightseagreen;
+    border-bottom: limegreen;
+}
+.text{
+    color: chocolate;
+    font-weight: bolder;
+}
+.price{
+    color: rgb(255, 0, 170);
+    text-align: left;
+}
+.description-project{
+color: rgb(68, 63, 63);
+text-align: left;
+}
+.service-col{
+    
+}
