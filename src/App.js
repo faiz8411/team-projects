@@ -10,6 +10,7 @@ import Home from './component/Home/Home/Home';
 import Login from './component/Home/Login/Login';
 import Register from './component/Home/Register/Register';
 import AuthProvider from './context/AuthPrivider';
+import AddService from './component/AddService/AddService';
 function App() {
   return (
     <div className="App">
@@ -23,6 +24,9 @@ function App() {
 
             </Route>
             <Route path="/register" element={<Register />}>
+
+            </Route>
+            <Route path="/addService" element={<AddService />}>
 
             </Route>
 

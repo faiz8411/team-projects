@@ -48,12 +48,12 @@ const Registration = () => {
                             onChange={handleOnBlur}
                             type="email"
                             name='email'
-                            placeholder='email'
+                            placeholder='your email'
                         /> <br />
                         <input
                             style={{ width: '80%', margin: 10, borderBottom: '' }}
                             // defaultValue="password"
-                            placeholder='password'
+                            placeholder='your password'
                             onChange={handleOnBlur}
                             name='password'
                             type="password" />
@@ -62,7 +62,7 @@ const Registration = () => {
                         <input
                             style={{ width: '80%', margin: 10, borderBottom: '' }}
                             // defaultValue="password"
-                            placeholder='password'
+                            placeholder='confirm password'
                             onChange={handleOnBlur}
                             name='password2'
                             type="password" />
