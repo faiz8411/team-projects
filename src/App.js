@@ -11,15 +11,22 @@ import Login from './component/Home/Login/Login';
 import Register from './component/Home/Register/Register';
 import AuthProvider from './context/AuthPrivider';
 import AddService from './component/AddService/AddService';
+import Navigation from './component/Sahred/Navigation/Navigation';
+import HomePage from './component/Home/Home/HomePage';
+import Details from './component/Home/Details/Details';
+import PrivateRoute from './component/Home/Home/PrivateRoute/PrivateRoute';
 function App() {
   return (
     <div className="App">
       <AuthProvider>
         <Router>
+          <Navigation></Navigation>
           <Routes>
             <Route path="/" element={<Home />}>
-
             </Route>
+            <Route path="/home" element={<Home />}>
+            </Route>
+
             <Route path="/login" element={<Login />}>
 
             </Route>
@@ -29,6 +36,9 @@ function App() {
             <Route path="/addService" element={<AddService />}>
 
             </Route>
+            <Route path="/details/:serviceId" element={<PrivateRoute>
+              <Details></Details>
+            </PrivateRoute>} />
 
           </Routes>
         </Router>

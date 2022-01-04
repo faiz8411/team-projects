@@ -1,12 +1,14 @@
 .navigation-container{
     /* margin-top: 150px; */
     margin-bottom: 19px;
+    /* background-color: black; */
 }
 .displayName{
     margin-left: 100px;
 }
+
 .nav{
-    background-color: rgba(1, 74, 92, 0.87);
+    /* background-color: rgba(1, 74, 92, 0.87); */
 }
 
 @media only  screen and  (max-width:991px){

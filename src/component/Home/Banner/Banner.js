@@ -1,24 +1,23 @@
 import React from 'react';
-import "./Banner.css"
+// import "./Banner.css"
 
 const Banner = () => {
     return (
-        <div className='banner-container '>
-            <h2 className='mb-5 text-primary'>RESTBEEF STEAKHOUSE</h2>
-            <h4 className='m-5'>best sticks and grilled</h4>
-            <h3>you can love it</h3>
-
-
-            <div className='mx-5'>
-                <p className='paragraph'>We are making the original steaks based  on traditional recipes. <br /> We use only fresh meat from the best suppliers. Our staff are professionals, <br /> and we make everything to left our clients satisfied.</p>
-                <button className='button'>watch menu</button>
-
-
+        <div className='banner-container p-5'>
+            <div className=''>
+                <h1>Best Steaks and Grill <br />
+                    RESTBEEF STEAKHOUSE</h1>
+                <p>We are making the original steaks based on traditional recipes. We use only fresh meat from <br /> the best suppliers. Our staff are professionals, and we make everything to left our clients satisfied.</p>
+                <div className="row">
+                    <div className="col-md-4"></div>
+                    <div className="col-md-4">
+                        <button className='btn btn-outline-danger'><strong>WATCH MENU</strong></button>
+                        <button className='btn btn-outline-danger m-3'><strong>BOOK A TABLE</strong></button>
+                    </div>
+                    <div className="col-md-4"></div>
+                </div>
             </div>
-
-
-
-
+            {/* <Banner></Banner> */}
         </div>
     );
 };

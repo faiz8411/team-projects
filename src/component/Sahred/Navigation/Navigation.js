@@ -10,10 +10,7 @@ const Navigation = () => {
     const { user, logout } = useAuth()
     return (
         <div className='navigation-container fixed-top' >
-
-            <Navbar bg="dark" variant="warning" className='nav' >
-                {/* <p className='text-white mb-5'>time</p> */}
-
+            <Navbar bg="dark" variant="warning" className='' >
                 <Container>
                     <Navbar.Brand href="#home" className='text-white'>
                         {/* <img src={logo} alt="" /> */}
@@ -31,7 +28,7 @@ const Navigation = () => {
                             <Nav.Link as={HashLink} to="/login" className="rounded text-white">login</Nav.Link>}
                         <Navbar.Collapse className="justify-content-end ">
                             <Navbar.Text className="text-white ">
-                                {user?.email && <p>welcome : {user.displayName}</p>}
+
 
                             </Navbar.Text>
                         </Navbar.Collapse>
@@ -40,7 +37,18 @@ const Navigation = () => {
                 </Container>
 
             </Navbar>
+            <div>
+                <Navbar>
+                    <Container>
 
+                        <Navbar.Brand href="#home" className="m-2">
+
+                        </Navbar.Brand>
+                        <Navbar.Toggle />
+
+                    </Container>
+                </Navbar>
+            </div>
         </div>
     );
 };
