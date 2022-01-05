@@ -7,14 +7,14 @@ const ManageOrder = () => {
     const [control, setControl] = useState(false)
 
     useEffect(() => {
-        const url = `http://localhost:5000/orders?email=${user.email}`
+        const url = `https://cryptic-crag-45256.herokuapp.com/orders?email=${user.email}`
         fetch(url)
             .then(res => res.json())
             .then(data => setManageOrder(data))
     }, [user.email])
     const handleDelete = (id) => {
         alert('you want to delete')
-        fetch(`http://localhost:5000/deleteOrder/${id}`, {
+        fetch(`https://cryptic-crag-45256.herokuapp.com/deleteOrder/${id}`, {
             method: "DELETE",
         })
             .then((res) => res.json())

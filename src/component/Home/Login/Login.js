@@ -5,7 +5,7 @@ import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
     const [loginData, SetLoginData] = useState({})
-    const { user, loginUser, isLoading, signWithGoogle, authError } = useAuth()
+    const { user, loginUser, isLoading, signWithGoogle, authError, forgotPassword } = useAuth()
     const location = useLocation()
     const navigate = useNavigate()
     const handleOnChange = (e) => {
@@ -27,7 +27,7 @@ const Login = () => {
         signWithGoogle(location, navigate)
     }
     return (
-        <div>
+        <div className='mt-5'>
             <Row>
                 <Col xs={12} md={6} className='mt-5'>
                     <form onSubmit={handleLoginSubmit}>
@@ -63,6 +63,7 @@ const Login = () => {
                                 <span className="visually-hidden">Loading...</span>
                             </Spinner>
                         }
+
                         {user?.email && <Alert>
                             user create successfully
                         </Alert>}
