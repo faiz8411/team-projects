@@ -20,7 +20,7 @@ const Navigation = () => {
                     <Nav className="mx-auto">
                         <Nav.Link as={HashLink} className='text-white' to="/home">Home</Nav.Link>
 
-                        <Nav.Link as={HashLink} className='text-white' to="/features">Features</Nav.Link>
+                        <Nav.Link as={HashLink} className='text-white' to="/Dashboard">dashboard</Nav.Link>
                         {user?.email && <Nav.Link as={HashLink} className='text-white' to="/order">Order</Nav.Link>}
                         {user.email && <Nav.Link as={HashLink} className='text-white' to="/dashboard">Dashboard</Nav.Link>}
                         {user?.email ? <Nav.Link as={HashLink} className='text-white' to="/login" className=" text-white rounded" onClick={logout}>logout</Nav.Link>

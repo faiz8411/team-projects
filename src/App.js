@@ -15,6 +15,10 @@ import Navigation from './component/Sahred/Navigation/Navigation';
 import HomePage from './component/Home/Home/HomePage';
 import Details from './component/Home/Details/Details';
 import PrivateRoute from './component/Home/Home/PrivateRoute/PrivateRoute';
+import Dashboard from './component/Dashboard/Dashboard';
+import Order from './component/Order/Order';
+import AllUsers from './component/AllUsers/AllUsers';
+import ManageOrder from './component/ManageOrder/ManageOrder';
 function App() {
   return (
     <div className="App">
@@ -40,10 +44,26 @@ function App() {
               <Details></Details>
             </PrivateRoute>} />
 
+            <Route path="/dashboard" element={<PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>}>
+              <Route path="/dashboard/order" element={<Order />}></Route>
+              <Route path="/dashboard/AllUsers" element={<AllUsers />}></Route>
+
+              <Route path="/dashboard/manageOrder" element={<ManageOrder></ManageOrder>}></Route>
+              {/* <Route path="/dashboard/AllServiceManage" element={<AllServiceManage />}></Route> */}
+              {/* <Route path="/dashboard/superAdmin" element={<MakeAdmin />} /> */}
+
+              {/* <Route path="/dashboard/createAdmin" element={<CreateAdmin />}></Route> */}
+              {/* <Route path="/dashboard/manageService" element={< ManageService />}> */}
+
+
+            </Route>
+
           </Routes>
         </Router>
       </AuthProvider>
-    </div>
+    </div >
   );
 }
 
