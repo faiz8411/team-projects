@@ -12,7 +12,7 @@ const Details = () => {
         alert('your order successfully added in my order')
         data.status = "pending"
         console.log(data)
-        fetch("http://localhost:5000//confirmOrder", {
+        fetch("http://localhost:5000/confirmOrder", {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

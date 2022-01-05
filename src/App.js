@@ -19,6 +19,10 @@ import Dashboard from './component/Dashboard/Dashboard';
 import Order from './component/Order/Order';
 import AllUsers from './component/AllUsers/AllUsers';
 import ManageOrder from './component/ManageOrder/ManageOrder';
+import ManageAllOrders from './component/ManageAllOrders/ManageAllOrders';
+import MakeSuperAdmin from './component/MakeSuperAdmin/MakeSuperAdmin';
+import MakeAdmin from './component/MakeAdmin/MakeAdmin';
+import Shop from './component/Home/Shop/Shop';
 function App() {
   return (
     <div className="App">
@@ -40,6 +44,12 @@ function App() {
             <Route path="/addService" element={<AddService />}>
 
             </Route>
+            <Route path="/order" element={<Order />}>
+
+            </Route>
+            <Route path="/shop" element={<Shop />}>
+
+            </Route>
             <Route path="/details/:serviceId" element={<PrivateRoute>
               <Details></Details>
             </PrivateRoute>} />
@@ -52,10 +62,10 @@ function App() {
 
               <Route path="/dashboard/manageOrder" element={<ManageOrder></ManageOrder>}></Route>
               {/* <Route path="/dashboard/AllServiceManage" element={<AllServiceManage />}></Route> */}
-              {/* <Route path="/dashboard/superAdmin" element={<MakeAdmin />} /> */}
+              <Route path="/dashboard/Admin" element={<MakeAdmin />} />
 
-              {/* <Route path="/dashboard/createAdmin" element={<CreateAdmin />}></Route> */}
-              {/* <Route path="/dashboard/manageService" element={< ManageService />}> */}
+              <Route path="/dashboard/superAdmin" element={<MakeSuperAdmin />}></Route>
+              <Route path="/dashboard/manageAllOrders" element={< ManageAllOrders />} />
 
 
             </Route>

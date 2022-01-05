@@ -1,17 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 
-const ManageOrder = () => {
+const ManageAllOrders = () => {
     const { user } = useAuth()
-    const [manageOrder, setManageOrder] = useState([])
+    const [orders, setOrders] = useState([]);
+    // const { register, handleSubmit } = useForm();
     const [control, setControl] = useState(false)
 
+    const [status, setStatus] = useState("");
+    const [orderId, setOrderId] = useState("");
+    const handleStatus = e => {
+        setStatus(e.target.value)
+    }
+    console.log(status)
+
+    console.log(status);
     useEffect(() => {
-        const url = `http://localhost:5000/orders?email=${user.email}`
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setManageOrder(data))
-    }, [user.email])
+        fetch(`http://localhost:5000/allOrders`)
+            .then((res) => res.json())
+            .then((data) => setOrders(data));
+    }, []);
+
+    const handleUpdate = (id) => {
+        alert('approved successfully')
+        fetch(`http://localhost:5000/updateStatus/${id}`, {
+            method: "PUT",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ status }),
+        });
+
+        console.log(id);
+    };
     const handleDelete = (id) => {
         alert('you want to delete')
         fetch(`http://localhost:5000/deleteOrder/${id}`, {
@@ -27,8 +46,9 @@ const ManageOrder = () => {
     };
     return (
         <div>
+            <h4>all orders</h4>
             {
-                manageOrder.map(pd => (<div className=' col-sm-12'>
+                orders.map(pd => (<div className=' col-sm-12 '>
                     <div className="service border border p-3 ">
 
                         <div className="row">
@@ -40,7 +60,7 @@ const ManageOrder = () => {
                                 </div>
 
                             </div>
-                            <div className="col-md-3">
+                            <div className="col-md-2">
                                 <h6>service name</h6>
                                 <h6 className='description'>{pd.name}</h6>
 
@@ -51,15 +71,20 @@ const ManageOrder = () => {
                             </div>
                             <div className="col-md-3">
                                 <h6>user email</h6>
-                                <p className=' description-project'>{user.email}</p>
+                                <p className=' description-project'>{pd.email}</p>
                             </div>
-                            <div className="col-md-2">
-                                <h6>price</h6>
+                            <div className="col-md-1 mx-2">
+                                <h6 className=''>price</h6>
                                 <p className='text-danger'>price:${pd.price}</p>
                             </div>
                             <div className="col-md-2">
                                 <h6>action</h6>
                                 <button className='mt-0 bg-danger text-white border-0 rounded' onClick={() => handleDelete(pd._id)}>delete</button>
+                                <button className='mt-1 bg-success text-white border-0 rounded' onClick={() => handleUpdate(pd._id)}>update</button>
+                            </div>
+                            <div className="col-md-1 me-1">
+                                <h6>status</h6>
+                                <input type="text" className='bg-primary border-0 rounded  text-white' style={{ width: "80px", textAlign: "center" }} defaultValue={pd.status} onChange={handleStatus} width="60px" />
                             </div>
 
 
@@ -76,4 +101,4 @@ const ManageOrder = () => {
     );
 };
 
-export default ManageOrder;
+export default ManageAllOrders;

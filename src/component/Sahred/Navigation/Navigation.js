@@ -9,7 +9,7 @@ import useAuth from '../../../hooks/useAuth';
 const Navigation = () => {
     const { user, logout } = useAuth()
     return (
-        <div className='navigation-container fixed-top' >
+        <div className='header fixed-top' >
             <Navbar bg="dark" variant="warning" className='' >
                 <Container>
                     <Navbar.Brand href="#home" className='text-white'>
@@ -20,12 +20,13 @@ const Navigation = () => {
                     <Nav className="mx-auto">
                         <Nav.Link as={HashLink} className='text-white' to="/home">Home</Nav.Link>
 
-                        <Nav.Link as={HashLink} className='text-white' to="/Dashboard">dashboard</Nav.Link>
+                        {user.email && <Nav.Link as={HashLink} className='text-white' to="/Dashboard">dashboard</Nav.Link>}
                         {user?.email && <Nav.Link as={HashLink} className='text-white' to="/order">Order</Nav.Link>}
-                        {user.email && <Nav.Link as={HashLink} className='text-white' to="/dashboard">Dashboard</Nav.Link>}
-                        {user?.email ? <Nav.Link as={HashLink} className='text-white' to="/login" className=" text-white rounded" onClick={logout}>logout</Nav.Link>
+                        <Nav.Link as={HashLink} className='text-white' to="/shop">shop</Nav.Link>
+                        {user?.email ? <Nav.Link as={HashLink} className='text-white' to="/login" className=" text-white rounded" onClick={logout}>logout :{user.displayName}</Nav.Link>
                             :
                             <Nav.Link as={HashLink} to="/login" className="rounded text-white">login</Nav.Link>}
+                        {/* <Nav.Link as={HashLink} className='text-white' to="/login" className=" text-white rounded" >:{user.displayName}</Nav.Link> */}
                         <Navbar.Collapse className="justify-content-end ">
                             <Navbar.Text className="text-white ">
 

@@ -8,7 +8,7 @@ const Sidebar = () => {
     const { user, logout, superAdmin, admin } = useAuth()
     return (
         <div>
-            <div>
+            <div className='mt-5'>
                 <div className='row'>
                     <div className="col-md-2">
                         <Navbar bg="light" expand={false}>
@@ -37,10 +37,10 @@ const Sidebar = () => {
 
                                                 <Nav.Link as={HashLink} to={`/dashboard/createAdmin`}>Make admin</Nav.Link>
                                             </div>}
-                                            {admin ?? <Nav.Link as={HashLink} to={`/dashboard/createAdmin`}>Make admin</Nav.Link>
+                                            {admin ?? <Nav.Link as={HashLink} to={`/dashboard/Admin`}>Make admin</Nav.Link>
                                             }
                                             {superAdmin && <Nav.Link as={HashLink} to={`/dashboard/superAdmin`}>Make super admin</Nav.Link>}
-                                            {superAdmin && <Nav.Link as={HashLink} to={`/dashboard/manageService`}>All orders</Nav.Link>}
+                                            {superAdmin && <Nav.Link as={HashLink} to={`/dashboard/manageAllOrders`}>manage orders</Nav.Link>}
                                             {user?.email ?
                                                 <Nav.Link as={HashLink} onClick={logout} to="/">Logout</Nav.Link>
                                                 : <></>}

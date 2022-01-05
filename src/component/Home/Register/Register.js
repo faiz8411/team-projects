@@ -34,11 +34,19 @@ const Registration = () => {
                 <Col xs={12} md={6} className='mt-5'>
                     {!isLoading && <form onSubmit={handleLoginSubmit}>
                         {/* register your input into the hook by invoking the "register" function */}
-                        <input
+                        {/* <input
                             style={{ width: '80%', margin: 20 }}
                             // defaultValue="email"
                             onChange={handleOnBlur}
 
+                            name='name'
+                            placeholder='user name'
+                        /> <br /> */}
+                        <input
+                            style={{ width: '80%', marginTop: 50 }}
+                            // defaultValue="email"
+                            onChange={handleOnBlur}
+                            type="name"
                             name='name'
                             placeholder='user name'
                         /> <br />

@@ -1,12 +1,13 @@
 import { useState } from "react"
 
-import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, signOut, onAuthStateChanged, getIdToken, updateProfile, initializeAuth } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, signOut, onAuthStateChanged, getIdToken, updateProfile, initializeAuth, sendEmailVerification, sendPasswordResetEmail } from "firebase/auth";
 import { useEffect } from "react";
 import initializedAuthentication from "../component/Firebase/firebase.initialize";
 initializedAuthentication()
 
 const useFirebase = () => {
     const [user, setUser] = useState({})
+    const [superAdmin, setSuperAdmin] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
     const [admin, setAdmin] = useState(false)
     const [token, setToken] = useState('')
@@ -23,6 +24,7 @@ const useFirebase = () => {
                 setAuthError('')
                 const newUser = { email, displayName: name }
                 setUser(newUser)
+                varifyEmail()
                 saveUser(email, name, 'POST')
                 updateProfile(auth.currentUser, {
                     displayName: name,
@@ -69,6 +71,9 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
 
     }
+    const forgotPassword = (email) => {
+        return sendPasswordResetEmail(auth, email);
+    };
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (user) => {
@@ -84,11 +89,17 @@ const useFirebase = () => {
 
     }, [])
 
-    // useEffect(() => {
-    //     fetch(`https://quiet-springs-89109.herokuapp.com/users/${user.email}`)
-    //         .then(res => res.json())
-    //         .then(data => setAdmin(data.admin))
-    // }, [user.email])
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setSuperAdmin(data.superAdmin))
+    }, [user.email])
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.Admin))
+    }, [user.email])
 
 
     const logout = () => {
@@ -100,21 +111,30 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
 
     }
+    const varifyEmail = () => {
+        sendEmailVerification(auth.currentUser)
+            .then(result => {
+                console.log(result)
+            })
+    }
 
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName }
-        // fetch('https://quiet-springs-89109.herokuapp.com/users', {
-        //     method: method,
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(user)
-        // })
-        //     .then()
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
     }
     return {
         user,
         admin,
+        superAdmin,
+        forgotPassword,
+
 
         isLoading,
         authError,
