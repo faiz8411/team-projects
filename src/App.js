@@ -24,6 +24,7 @@ import MakeSuperAdmin from './component/MakeSuperAdmin/MakeSuperAdmin';
 import MakeAdmin from './component/MakeAdmin/MakeAdmin';
 import Shop from './component/Home/Shop/Shop';
 import Footer from './component/Home/Footer/Footer';
+import Notfound from './component/Notfound/Notfound';
 function App() {
   return (
     <div className="App">
@@ -68,6 +69,9 @@ function App() {
               <Route path="/dashboard/superAdmin" element={<MakeSuperAdmin />}></Route>
               <Route path="/dashboard/manageAllOrders" element={< ManageAllOrders />} />
 
+
+            </Route>
+            <Route path="*" element={<Notfound />}>
 
             </Route>
 
