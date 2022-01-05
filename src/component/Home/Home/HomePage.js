@@ -94,21 +94,7 @@ const HomePage = () => {
             </div>
             {/* testimonial  */}
             {/* contact  */}
-            <div className='my-5'>
-                <div className="row">
-                    <div className="col-md-6 my-5">
-                        <h3><i>Got Questions?</i></h3>
-                        <h1><strong>GET IN TOUCH WITH US</strong></h1>
-                        <input type="text" placeholder='ENTER YOUR NAME' />
-                        <input className='my-3 mx-3' type="email" placeholder='ENTER YOUR EMAIL' />
-                        <textarea name="" id="" cols="60" rows="10" placeholder='ENTER YOUR MESSAGE'></textarea> <br />
-                        <button className='btn btn-outline-danger w-75'>SEND YOUR MESSAGE</button>
-                    </div>
-                    <div className="col-md-6">
-                        <img className='w-100' src={img2} alt="" />
-                    </div>
-                </div>
-            </div>
+
             {/* contact  */}
         </div>
     );

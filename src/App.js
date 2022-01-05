@@ -23,6 +23,7 @@ import ManageAllOrders from './component/ManageAllOrders/ManageAllOrders';
 import MakeSuperAdmin from './component/MakeSuperAdmin/MakeSuperAdmin';
 import MakeAdmin from './component/MakeAdmin/MakeAdmin';
 import Shop from './component/Home/Shop/Shop';
+import Footer from './component/Home/Footer/Footer';
 function App() {
   return (
     <div className="App">
@@ -71,6 +72,7 @@ function App() {
             </Route>
 
           </Routes>
+          <Footer></Footer>
         </Router>
       </AuthProvider>
     </div >

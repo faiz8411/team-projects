@@ -55,20 +55,15 @@ const AddService = () => {
                                     className="p-2 m-2 w-100 input-field"
                                 />
                                 <br />
-                                {/* <input
-                                    style={{ border: '2px solid green', m: 1 }}
-                                    {...register("photo", { required: true })}
-                                    placeholder="Image Link 2"
+                                <input
+                                    style={{ border: '2px solid green' }}
+                                    {...register("description")}
+                                    placeholder="Description"
                                     className="p-2 m-2 w-100 input-field"
                                 />
-                                <br /> */}
-                                {/* <input
-                                    style={{ border: '2px solid green', m: 1 }}
-                                    {...register("picture", { required: true })}
-                                    placeholder="Image Link3"
-                                    className="p-2 m-2 w-100 input-field"
-                                />
-                                <br /> */}
+                                <br />
+
+
                                 <input
                                     style={{ border: '2px solid green', m: 2 }}
                                     {...register("price", { required: true })}
